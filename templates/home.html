@@ -1,0 +1,15 @@
+{% extends '_base.html'%}
+{% block content%}
+
+
+<center>
+    <h3>  BalisTour </h3>
+    {% if user.is_authenticated %}
+    {% comment %} <p> Welcome {{user.username}} </p>  <a href="{% url 'logout'%}"> Logout </a>  {% endcomment %}
+    {% else %}
+    <a href="{% url 'login'%}"> Login </a> OR <a href="{% url 'signup'%}"> Signup </a> 
+    {% endif %}
+</center>
+
+<a href = "{% url 'tour_list'%}">Tours</a>
+{% endblock%}

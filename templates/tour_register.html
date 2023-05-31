@@ -1,0 +1,22 @@
+{% extends 'tour_detail.html' %}
+{% include 'tour_detail.html' %
+{% load static %}
+{% block title %}
+{{ tour.title }} Register 
+{% endblock title %}
+
+{% block content %}
+welcom {{user.username}}
+<br>
+<br>
+<h2>{{ tour.title }}</h2>
+{% comment %} <img src="{{ tour.photo.url }}" alt="tour Photo"> {% endcomment %}
+<p>{{ tour.description }}</p>
+
+<form method="post" >
+
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value=Submit>
+</form>
+{% endblock content %}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>
+    {% block title%}
+    {% endblock%}
+ </title>
+ <style>
+  body {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+  }
+  header {
+   background-color: #2d846e;
+   color: #fff;
+   text-align: center;
+   padding: 20px;
+  }
+  h1 {
+   margin: 0;
+  }
+  nav {
+   background-color: #2d9a6e;
+   padding: 10px;
+   text-align: center;
+  }
+  nav ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+  }
+  nav li {
+   display: inline-block;
+   margin-right: 20px;
+  }
+  nav a {
+   color: #000000
+   ;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 18px;
+  }
+  main {
+   padding: 200px;
+   text-align: center;
+  }
+  p {
+   font-size: 16px;
+   line-height: 1.5;
+   margin-bottom: 20px;
+  }
+  footer {
+   background-color: #2d846e;
+   color: #fff;
+   padding: 10px;
+   text-align: center;
+  }
+ </style>
+</head>
+<body>
+ <header>
+  <h1>Welcome to BasilTour</h1>
+ </header>
+ <nav>
+  <ul>
+   <li><a href="{% url "home" %}">Home</a></li>
+   <li><a href="{% url "tour_list" %}">Tours</a></li>
+  {% if user.is_authenticated %}
+   <li><a href="{% url "logout" %}">Logout</a></li>
+   {% else%}
+   <li><a href="{% url 'login' %}">Login</a></li> 
+   <li><a href="{% url 'signup' %}">Signup</a></li>
+  {% endif%}
+
+
+  </ul>
+ </nav>
+ <main>
+    {% block content %}
+    
+    {% endblock %}
+
+ </main>
+ <footer>
+    <p>
+        <h6>
+         BasilTour CO
+        </h6>
+    </p>
+  <p><h6>&copy; 2023 My Landing Page. All rights reserved.</h6></p>
+ </footer>
+</body>
+</html>
